@@ -1,0 +1,57 @@
+# Requirements
+- Open your chosen dataset in Python. Output the total number of rows of data.
+- Implement appropriate programming constructs to count the total number of rows of data in the chosen dataset.
+
+- Improve and verify
+  Can you repeat the analysis using the Python libraries introduced (Numpy, Pandas) 
+  and verify data processing and transformations where appropriate? 
+
+- Count the number of records in your chosen dataset to verify it has loaded correctly.
+- Correctly perform a non-trivial operation (transformation [log, scaling], reduction [min, max, mean] etc.) on the data.
+- Structure your code using functions where appropriate. 
+- Identify any patterns or trends in the records values.
+- Verification of your scripted result using Python software libraries e.g. NumPy and Pandas.
+- Include error handling, user input, loops and iteration. 
+
+# Request 
+Write a program that constructs the portrait of the typical bad hero and typical good hero. The program takes heroes data set as inputs and
+displays the results in a form of tables with average or mostly met traits for each type of hero.
+...compare, statistics..
+Make more complicated - ask user for the criteria how to split the data set
+User inputs their parameters and gets who are they in heroes world
+
+# Analysis
+The inputs to the program are the following:
+- the initial data set with bad and good heroes characteristics (floating-point numbers, strings)
+
+The program splits the data set in order to separate characteristics of bad heroes and good heroes, 
+calculates a mean for numeric columns, the mostly met for non-numeric columns, and displays the results in a tabular format. 
+
+The proposed user interface is:
+-------------------------------------------------------------------
+| An average bad guy portrait:    An average good guy portrait:   |
+|  Gender:                           Gender:                      |
+|  Eye color:                        Eye color:                   |
+|  Race:                             Race:                        |
+|  Hair color:                       Hair color:                  |
+|  Height:                           Height:                      |
+|  Publisher:                        Publisher:                   |
+|  Skin color:                       Skin color:                  |
+|  Weight:                           Weight:                      |   
+-------------------------------------------------------------------
+
+# Pseudocode
+The program has three main parts:
+1. Import the data set and split it.
+2. Calculate a mean for numeric columns and mostly used for non-numeric columns for each of two dataFrames.
+3. Display the results in tabular format.
+
+Import “SuperHeroes.csv” data and make a copy of it
+Perform the basic checks on the data, log errors
+Split the data set based on the 'Alignment' column
+
+Display the header of the table..................
+
+Calculate frequency for non-numeric values and a mean for numeric values 
+Display the results in a tabular format using format string
+
