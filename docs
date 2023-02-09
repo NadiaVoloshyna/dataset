@@ -28,29 +28,28 @@ The program displays the requested hero's characteristics compared to the averag
 
 The proposed user interface is:
 -------------------------------------------------------
-|               "heroe's name":  Average "good/bad":  |
+|                "hero's name":  Average "good/bad":  |
 |  Gender:             X                 X            |
-|  Eye color:          X                 X            |
+|  Eye colour:         X                 X            |
 |  Race:               X                 X            |
-|  Hair color:         X                 X            |
+|  Hair colour:        X                 X            |
 |  Height:             X                 X            |
 |  Publisher:          X                 X            |
-|  Skin color:         X                 X            |
+|  Skin colour:        X                 X            |
 |  Weight:             X                 X            |   
 -------------------------------------------------------
 
 # Pseudocode
-The program has five main parts:
+The program has four main parts:
 1. Input the user's hero name and a dataset.
 2. Generate the hero's data.
 3. Compute the average good/bad profile characteristics.
-4. Compare the hero's profile with an average.
-5. Display the results in a tabular format.
+4. Display the comparison of the hero's profile with an average in a tabular format.
 
 Input the hero's name
 Import “SuperHeroes.csv” data and make a copy of it
 Check if the hero is in the dataset, log an error
-Generate the heroe's characteristics
+Generate the hero's characteristics
 Find the hero's alignment
 Split the data set based on the 'Alignment' column
 Perform the basic checks on the data, log errors

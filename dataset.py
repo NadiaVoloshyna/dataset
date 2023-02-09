@@ -8,13 +8,15 @@ import math
 hero = input("Enter the hero's name: ")
 heroes = pd.read_csv("C:\ABERTAY\Voloshyna_Week5-assignment\SuperHeroes.csv", sep=';')
 df = heroes.copy()
+print(len(df))
 
-# Check if the hero's name exists in the dataset and get the hero's data
+# Check if the hero's name exists and get the hero's data
 names = df.groupby(df.Name)
 try:
    heroProfile = names.get_group(hero)
    heroAlignment = heroProfile["Alignment"].values[0]
 except KeyError:
+   heroProfile = pd.DataFrame()
    print("Error: the hero with this name does not exist!")
 
 # Get dataFrames with good and bad heroes
@@ -51,7 +53,7 @@ def compare(dataFrame, heroProfile):
 
    list = handleDataframe(heroProfile)
    res = handleDataframe(dataFrame)
-   items = ["Gender: ", "Eye color: ", "Race: ", "Hair color: ", "Height: ", "Publisher: ", "Skin color: ", "Weight: "]
+   items = ["Gender: ", "Eye colour: ", "Race: ", "Hair colour: ", "Height: ", "Publisher: ", "Skin colour: ", "Weight: "]
    for item, el, name in zip(items, list, res):
         if type(name) == 'float': 
          print("%-12s%20d%20d" % (item, el, name))
@@ -59,9 +61,10 @@ def compare(dataFrame, heroProfile):
          print("%-12s%20s%20s" % (item, el, name))
    print("-----------------------------------------------------")
 
-if heroAlignment == 'bad':
-   compare(df_bad, heroProfile)
-else:
-   compare(df_good, heroProfile)
+if heroProfile.empty !=True:
+   if heroAlignment == 'bad':
+      compare(df_bad, heroProfile)
+   else:
+      compare(df_good, heroProfile)
 
 
