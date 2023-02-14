@@ -6,10 +6,10 @@
 - Identify any patterns or trends in the records values.
 - Verification of your scripted result using Python software libraries e.g. NumPy and Pandas.
 - Include error handling, user input, loops and iteration. 
+
 ...compare, statistics..
-Make more complicated - ask user for the criteria how to split the data set
 User inputs their parameters and gets who are they in heroes world
-a bad-to-good Conversion Tool
+change to `string for prints (f)
 
 # Request 
 Write a program that finds the requested hero in the dataset and displays their characteristics compared with the average.
@@ -20,11 +20,11 @@ The inputs to the program are the following:
 - the name of the hero (string)
 
 The program excepts the hero's name as user's input, checks if the requested hero exists, 
-splits the data set in order to separate characteristics of bad heroes and good heroes, 
+splits the dataset in order to separate attributes of bad heroes and good heroes, 
 calculates a mean for numeric columns and the mostly met for non-numeric columns 
 to construct the average bad/good profile, generates the hero's profile and compares it 
 to the average bad/good hero's profile. 
-The program displays the requested hero's characteristics compared to the average in a tabular format.
+The program displays the requested hero's characteristics compared with the average in a tabular format.
 
 The proposed user interface is:
 -------------------------------------------------------
