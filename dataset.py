@@ -5,9 +5,7 @@ Author: Nadiia Voloshyna
 import pandas as pd
 import math
 from convertor import convertor
-
-INCH_TO_CENTIMETERS = 2.54
-FIVE_FEET_TO_INCHES = 60
+from analysis import compute
 
 hero = input("Enter the name: ")
 heroes = pd.read_csv("C:\ABERTAY\Voloshyna_Week5-assignment\SuperHeroes.csv", sep=';')
@@ -20,19 +18,13 @@ try:
    heroAlignment = heroProfile["Alignment"].values[0]
 except KeyError:
    heroProfile = pd.DataFrame()
+   heroAlignment = ''
    print("Error: the hero with this name does not exist!")
 
 # Get dataframes with good and bad heroes
 grouped = df.groupby(df.Alignment)
 df_bad = grouped.get_group("bad")
 df_good = grouped.get_group("good")
-df_neutral = grouped.get_group("neutral")
-df_unknown = grouped.get_group("unknown")
-
-# Check the created dataframes
-dfLength, df_badLength, df_goodLength, df_neutralLength, df_unknownLength = len(heroes), len(df_bad), len(df_good), len(df_neutral), len(df_unknown)
-if df_badLength + df_goodLength != dfLength - df_neutralLength - df_unknownLength:
-    print("Error: the data set was split incorrectly!")
 
 # Calculate frequency for non-numeric values and a mean for numeric values. Make a list of characteristics
 def handleDataframe(dataFrame):
@@ -73,45 +65,24 @@ if heroProfile.empty != True:
       print("The hero is neither bad nor good")
 
 # Convert a bad hero to the good and vice versa
-print("The converted hero for " + str(hero) + " is ")
-convertor(df, hero)
+if heroProfile.empty != True and heroAlignment == 'good' or heroAlignment == 'bad':
+   print(f"The converted hero for {str(hero)} is:")
+   convertor(df, hero)
 
-# Make ndarrays with female and male height and weight attributes
+# Make 2D arrays with female and male height/weight attributes
 df_female = df[df["Gender"] == 'Female']
 df_femaleHeightWeight = df_female.loc[(df_female["Height"] > 0) & (df_female["Weight"] > 0), ["Height", "Weight"]]
-femaleHeightWeightnp = df_femaleHeightWeight.to_numpy()
+female_npArray = df_femaleHeightWeight.to_numpy()
 
 df_male = df[df["Gender"] == 'Male']
 df_maleHeightWeight = df_male.loc[(df_male["Height"] > 0) & (df_male["Weight"] > 0), ["Height", "Weight"]]
-maleHeightWeightnp = df_maleHeightWeight.to_numpy()
+male_npArray = df_maleHeightWeight.to_numpy()
 
-# Calculate the ideal weight
-def idealWeight(height, str):
-   heightIn = height / INCH_TO_CENTIMETERS
-   if str == 'female':
-      idealWeight = round(float(49 + 1.7 * (heightIn - FIVE_FEET_TO_INCHES)), 2)
-   else:
-      idealWeight = round(float(52 + 1.9 * (heightIn - FIVE_FEET_TO_INCHES)), 2)
-   return idealWeight
-
-# Compute the number of heroes with healthy and unhealthy weight 
-def compute(npArray, str):
-   healthyHeroes = 0
-   unhealthyHeroes = 0
-   for el in npArray:
-      heroHeight = el[0] 
-      heroWeight = el[1]
-      idealHeroWeight = idealWeight(heroHeight, str)
-      if heroWeight < idealHeroWeight:
-         healthyHeroes += 1
-      else:
-         unhealthyHeroes += 1
-   return healthyHeroes, unhealthyHeroes
-
-print("............................")
-res = compute(maleHeightWeightnp, 'male')
-print("Healthy male heroes: " + str(res[0]), "\nUnhealthy male heroes: " + str(res[1]))
-print("............................")
-res = compute(femaleHeightWeightnp, 'female')
-print("Healthy female heroes: " + str(res[0]), "\nUnhealthy female heroes: " + str(res[1]))
-print("............................")
+# Display the results of the ideal weight to real weight comparison
+print("....................................")
+print("Some statistics about the heroes:")
+res = compute(male_npArray, 'male')
+print(f"Healthy male heroes: {str(res[0])}\nUnhealthy male heroes: {str(res[1])}")
+res = compute(female_npArray, 'female')
+print(f"Healthy female heroes: {str(res[0])}\nUnhealthy female heroes: {str(res[1])}")
+print("....................................")

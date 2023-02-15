@@ -7,37 +7,45 @@
 - Verification of your scripted result using Python software libraries e.g. NumPy and Pandas.
 - Include error handling, user input, loops and iteration. 
 
-...compare, statistics..
-User inputs their parameters and gets who are they in heroes world
-change to `string for prints (f)
-
 # Request 
-Write a program that finds the requested hero in the dataset and displays their characteristics compared with the average.
+Write the program that takes the hero's name as user's input and displays the hero vs average characteristics comparison table, the converted hero, and health weight statistics.
 
 # Analysis
 The inputs to the program are the following:
-- the initial data set with bad and good heroes characteristics (floating-point numbers, strings)
+- the initial data set with heroes characteristics (floating-point numbers, strings)
 - the name of the hero (string)
 
-The program excepts the hero's name as user's input, checks if the requested hero exists, 
-splits the dataset in order to separate attributes of bad heroes and good heroes, 
-calculates a mean for numeric columns and the mostly met for non-numeric columns 
-to construct the average bad/good profile, generates the hero's profile and compares it 
-to the average bad/good hero's profile. 
-The program displays the requested hero's characteristics compared with the average in a tabular format.
+The program excepts the hero's name as user's input, checks if the requested hero exists, splits the dataset in order to separate attributes of bad heroes and good heroes, 
+calculates a mean for numeric columns and the mostly met for non-numeric columns to construct the average bad/good profile, generates the hero's profile and compares it 
+to the average bad/good hero's profile. The program displays the requested hero's characteristics compared with the average in a tabular format.
+The program finds the hero's counterpart in the opposite alignment dataframe and displays the result.
+The program makes two dataframes with male and female height/weight features, transfers them into NumPy arrays, calculates the number of male and female heroes with 
+a healthy/unhealthy weight using the ideal weight formula, and prints the results.
 
 The proposed user interface is:
--------------------------------------------------------
-|                "hero's name":  Average "good/bad":  |
-|  Gender:             X                 X            |
-|  Eye colour:         X                 X            |
-|  Race:               X                 X            |
-|  Hair colour:        X                 X            |
-|  Height:             X                 X            |
-|  Publisher:          X                 X            |
-|  Skin colour:        X                 X            |
-|  Weight:             X                 X            |   
--------------------------------------------------------
+
+Enter the name: 'hero's name'
+                  'hero's name'    Average 'good/bad' 
+------------------------------------------------------
+  Gender:               X                 X            
+  Eye colour:           X                 X            
+  Race:                 X                 X            
+  Hair colour:          X                 X            
+  Height:               X                 X            
+  Publisher:            X                 X            
+  Skin colour:          X                 X            
+  Weight:               X                 X              
+------------------------------------------------------
+The converted hero for 'hero's name' is:
+          Name Gender Alignment  Height  Weight
+     XXXXXXXXX   XXXX      XXXX    XXXX    XXXX
+....................................
+Some statistics about the heroes:
+Healthy male heroes: XX
+Unhealthy male heroes: XXX
+Healthy female heroes: XX
+Unhealthy female heroes: XX
+....................................
 
 # Pseudocode
 The program has four main parts:
