@@ -4,7 +4,8 @@ def convertor(dataset, heroName):
     heroAlignment = heroProfile["Alignment"].values[0]
     heroHeight = heroProfile["Height"].values[0]
     heroWeight = heroProfile["Weight"].values[0]
-
+    
+    # Conver the alignment to the opposite
     def oppositeAlignment(heroAlignment):
         if heroAlignment == 'good':
             return 'bad'

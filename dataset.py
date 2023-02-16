@@ -19,7 +19,7 @@ try:
 except KeyError:
    heroProfile = pd.DataFrame()
    heroAlignment = ''
-   print("Error: the hero with this name does not exist!")
+   print("Error: The hero with this name does not exist!")
 
 # Get dataframes with good and bad heroes
 grouped = df.groupby(df.Alignment)
