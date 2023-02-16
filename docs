@@ -2,16 +2,14 @@
 Write the program that allows the user to find the information about the hero and the counterpart, plus get some statistics about good and bad heroes.
 
 # Analysis
-Many people like superheroes and their stories. It is interesting to know some information about your favourite character. The program uses the SuperHeroes dataset to provide 
-the hero vs average characteristics comparison table, the converted hero, and health weight statistics.
+Many people like superheroes and their stories. It is interesting to get some information about your favourite character and investigate how the characteristics of any good or bad hero differ from their alignment category average attributes. Dataset.py is a program which provides the ability to analyse the information about the chosen hero in the SuperHeroes dataset using Python software library Pandas and non-trivial operations on the data. Includes user input, error handling, loops and functions. 
 
-The program is named dataset.py and has two modules with convertor and ideal weight computation functions that serve program routines. It uses the ideal weight formula randomly 
-found on the Internet.
+The program uses the SuperHeroes dataset to provide the hero vs average characteristics comparison table, the converted hero, and health weight statistics. It has two modules with convertor and ideal weight computation functions that serve program routines. It uses the ideal weight formula randomly found on the Internet.
 
 The inputs to the program are the following:
 - the initial dataset with heroes characteristics (floating-point numbers, strings)
 - the name of the hero (string)
-The dataset consists of 10 feature columns with data gaps in them. All signs are objects, except weight and height. There are 734 rows in the dataset.
+The dataset contains the characteristics of the heroes and consists of 10 feature columns with data gaps in them. All signs are objects, except weight and height. There are 734 rows in the dataset. The alignment of the hero can be ‘bad’, ‘good’, ‘neutral’ or ‘unknown’.
 
 The program excepts the hero's name as user's input, checks if the requested hero exists and logs the errors. It splits the dataset in order to separate attributes of bad heroes 
 and good heroes, calculates a mean for numeric columns and the mostly met for non-numeric columns to construct the average bad/good profile, generates the hero's profile and compares it 
@@ -50,7 +48,7 @@ Unhealthy female heroes: XX
 The program is structured according to four sets of tasks:
 1. Input the user's hero name and check, input a dataset.
 2. Generate the hero's data, compute the average good/bad profile characteristics, and display the comparison in a tabular format.
-3. Find the counterpart hero and print the results.
+3. Find the counterpart hero and print the result.
 4. Compute the data for healthy/unhealthy male/female heroes and display the results.
 
 Input the hero's name
@@ -58,7 +56,7 @@ Import “SuperHeroes.csv” data and make a copy of it
 Check if the hero is in the dataset, log an error
 Generate the hero's characteristics
 Find the hero's alignment
-Split the data set based on the 'Alignment' column
+Split the dataset based on the 'Alignment' column
 Calculate frequency for non-numeric values and a mean for numeric values 
 Compare the hero's characteristics with average
 Display the results in a tabular format using format string
